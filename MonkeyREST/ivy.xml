@@ -1,0 +1,21 @@
+<ivy-module version="2.0">
+    <info organisation="ollie.monkey.rest" module="monkey-res"/>
+    <configurations>
+    	<conf name="compile" visibility="public"/>
+    	<conf name="master" visibility="public"/>
+    </configurations>
+    <dependencies>
+        <dependency org="monkeyboard.api" name="monkeyboard" rev="1.01" />
+        <dependency org="ollie.utils" name="utils" rev="1.72"/>
+        <dependency org="com.sparkjava" name="spark-core" rev="2.6.0"/>
+        <dependency org="org.slf4j" name="slf4j-api" rev="1.7.25" />
+       
+        <dependency org="org.eclipse.jetty" name="jetty-server" rev="9.4.7.v20170914"/>
+        <dependency org="org.eclipse.jetty" name="jetty-webapp" rev="9.4.7.v20170914"/>
+        <dependency org="org.eclipse.jetty.websocket" name="websocket-server" rev="9.4.7.v20170914"/>
+        <dependency org="org.eclipse.jetty.websocket" name="websocket-servlet" rev="9.4.7.v20170914"/>
+        <!--dependency org="javax.servlet" name="javax.servlet-api" rev="4.0.0"/>
+        <dependency org="org.eclipse.jetty" name="jetty-util" rev="9.4.7.v20170914"/>
+        <dependency org="org.eclipse.jetty" name="jetty-http" rev="9.4.7.v20170914"/-->
+    </dependencies>
+</ivy-module>
