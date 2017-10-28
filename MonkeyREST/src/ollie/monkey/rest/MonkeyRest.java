@@ -5,14 +5,18 @@ import static spark.Spark.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import monkeyboard.api.KeyStoneAPI;
 import monkeyboard.api.RadioMode;
 
 public class MonkeyRest {
 
 	private static KeyStoneAPI api = new KeyStoneAPI();
-
+	
 	public static void main(String[] args) {
+		Log logger = LogFactory.getLog(MonkeyRest.class);
 		port(6666);
 		path("/dab", () -> {
 			get("/open", (req, res) -> api.findAndOpen(true));
@@ -41,6 +45,12 @@ public class MonkeyRest {
 			get("/play-program", (req, res) -> {
 				long dabProg = Long.valueOf(req.queryParams("prog"));
 				return api.playStream(RadioMode.DAB, dabProg);
+			});
+			
+			get("/text", (req, res) -> {
+				String text = api.getProgramText();
+				logger.trace("Returning text: "+text);
+				return text != null ? text : "";
 			});
 
 			get("/status", (res, req) -> api.getPlayStatus());
