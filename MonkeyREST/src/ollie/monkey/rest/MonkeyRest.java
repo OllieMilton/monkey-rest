@@ -17,7 +17,11 @@ public class MonkeyRest {
 	
 	public static void main(String[] args) {
 		Log logger = LogFactory.getLog(MonkeyRest.class);
-		port(6666);
+		int port = 6666;
+		if (args.length > 0) {
+			port = Integer.valueOf(args[0]);
+		}
+		port(port);
 		path("/dab", () -> {
 			get("/open", (req, res) -> api.findAndOpen(true));
 
